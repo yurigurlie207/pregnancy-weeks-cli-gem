@@ -4,6 +4,7 @@ class PregnancyWeeksInfo::CLI
   def call
     #create new instances of weeks from pregnancy website
     #PregnancyWeeksInfo::Scraper.new.make_weeks
+    puts ""
     puts "Hello, and Welcome to Discovering all the miraculous events during the 42 Weeks of Pregnancy!"
     start
   end
@@ -33,6 +34,7 @@ class PregnancyWeeksInfo::CLI
 
         puts ""
         puts "Week 2:"
+        puts ""
         puts "Would you like to see another week? Y/N"
 
         input = gets.strip.downcase
@@ -41,7 +43,8 @@ class PregnancyWeeksInfo::CLI
           start
         elsif input == "n"
           puts ""
-          puts "Thank you! Have a great day!"
+          puts "Thanks for stopping by to learn more about you and your baby! "
+          puts ""
           exit
         else
           puts ""
@@ -49,10 +52,13 @@ class PregnancyWeeksInfo::CLI
           start
         end
 
-    elsif [1..42].include? input
+    elsif (1..42).to_a.include? input.to_i
       #print_week(input)
       puts ""
       puts "Week 2:"
+
+      puts ""
+      puts "Would you like to see another week? Y/N"
 
       input = gets.strip.downcase
 
@@ -67,7 +73,7 @@ class PregnancyWeeksInfo::CLI
         puts "I don't understand that answer."
         start
       end
-      
+
     else
       puts ""
       puts "I don't understand the answer"
