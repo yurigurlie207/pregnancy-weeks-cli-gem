@@ -1,0 +1,2 @@
+class PregnancyWeeksInfo::Scraper
+end

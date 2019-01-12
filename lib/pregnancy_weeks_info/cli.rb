@@ -1,0 +1,3 @@
+class PregnancyWeeksInfo::CLI
+
+end
