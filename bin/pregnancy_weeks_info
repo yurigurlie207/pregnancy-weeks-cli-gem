@@ -3,4 +3,4 @@
 require_relative "../lib/pregnancy_weeks_info"
 
 
-# PregnancyWeeksInfo::CLI.new.call
+PregnancyWeeksInfo::CLI.new.call
