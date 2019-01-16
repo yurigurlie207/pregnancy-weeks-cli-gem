@@ -49,6 +49,11 @@ class PregnancyWeeksInfo::CLI
           puts "Thanks for stopping by to learn more about you and your baby! "
           puts ""
           exit
+        elsif input == "x"
+          puts ""
+          puts "Thanks for stopping by to learn more about you and your baby! "
+          puts ""
+          exit
         else
           puts ""
           puts "I don't understand that answer."
@@ -70,6 +75,11 @@ class PregnancyWeeksInfo::CLI
         puts ""
         puts "Thank you! Have a great day!"
         exit
+      elsif input == "x"
+        puts ""
+        puts "Thanks for stopping by to learn more about you and your baby! "
+        puts ""
+        exit
       else
         puts ""
         puts "I don't understand that answer."
@@ -79,6 +89,7 @@ class PregnancyWeeksInfo::CLI
     elsif input == "x"
       puts ""
       puts "Thank you! Have a great day!"
+      exit
     else
       puts ""
       puts "I don't understand the answer"
