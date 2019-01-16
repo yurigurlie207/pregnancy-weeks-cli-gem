@@ -21,14 +21,14 @@ class PregnancyWeeksInfo::Scraper
       Nokogiri::HTML(open(link))
   end
 
-  def scrape_weeks_index
+  def scrape_all_weeks
     get_all_links.each do |link|
       self.get_page(link).css(".intro")
     end
   end
 
   def make_weeks
-      scrape_weeks_index.each do |wk|
+      scrape_all_weeks.each do |wk|
         PregnancyWeeksInfo::Week.new_from_page(wk)
       end
   end
