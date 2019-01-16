@@ -16,6 +16,7 @@ class PregnancyWeeksInfo::CLI
     puts "Enter F: First Trimester   Weeks 1-13"
     puts "Enter S: Second Trimester  Weeks 14-27"
     puts "Enter T: Third Trimester   Weeks 28-42"
+    puts "Enter X to exit anytime"
 
     input = gets.strip.downcase
 
@@ -28,7 +29,13 @@ class PregnancyWeeksInfo::CLI
 
         input = gets.strip.downcase
 
-        print_week(input)
+        if (1..42).to_a.include? input.to_i
+          print_week(input)
+        else
+          puts ""
+          puts "I don't understand that answer."
+          start
+        end
 
         puts ""
         puts "Would you like to see another week? Y/N"
@@ -69,6 +76,9 @@ class PregnancyWeeksInfo::CLI
         start
       end
 
+    elsif input == "x"
+      puts ""
+      puts "Thank you! Have a great day!"
     else
       puts ""
       puts "I don't understand the answer"
@@ -76,25 +86,24 @@ class PregnancyWeeksInfo::CLI
     end
   end
 
-  #prints the week, along with weight, fruit, and weeks left for each week
   def print_weeks(input)
 
     if input == "f" then
       PregnancyWeeksInfo::Week.all.each_with_index do |week, i|
         if i < 13 then
-          puts "[Week " + (i+1).to_s + "]  " + week.weightUS + " ||| " + week.weightMetric + " ||| size of a/an " + week.fruit + " ||| "+ week.weeks_left + " week(s) to go!"
+          puts "[Week " + (i+1).to_s + "]  " + week.weightUS + " | " + week.weightMetric + " | size of a/an " + week.fruit + " | "+ week.weeks_left + " week(s) to go!"
         end
       end
     elsif input == "s" then
       PregnancyWeeksInfo::Week.all.each_with_index do |week, i|
         if i > 12 && i < 27 then
-          puts "[Week " + (i+1).to_s + "]  " + week.weightUS + " ||| " + week.weightMetric + " ||| size of a/an " + week.fruit + " ||| "+ week.weeks_left + " week(s) to go!"
+          puts "[Week " + (i+1).to_s + "]  " + week.weightUS + " | " + week.weightMetric + " | size of a/an " + week.fruit + " | "+ week.weeks_left + " week(s) to go!"
         end
       end
     else
       PregnancyWeeksInfo::Week.all.each_with_index do |week, i|
         if i > 26 then
-          puts "[Week " + (i+1).to_s + "]  " + week.weightUS + " ||| " + week.weightMetric + " ||| size of a/an " + week.fruit + " ||| "+ week.weeks_left + " week(s) to go!"
+          puts "[Week " + (i+1).to_s + "]  " + week.weightUS + " | " + week.weightMetric + " | size of a/an " + week.fruit + " | "+ week.weeks_left + " week(s) to go!"
         end
       end
     end
@@ -102,6 +111,8 @@ class PregnancyWeeksInfo::CLI
 
   #prints the week - gives all info associated with given week
   def print_week(input)
+    puts ""
+    puts "ALL INFORMATION FOR THIS WEEK"
   end
 
 
