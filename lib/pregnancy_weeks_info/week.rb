@@ -3,7 +3,7 @@ class PregnancyWeeksInfo::Week
   attr_accessor :weightUS, :weightMetric, :fruit, :weeks_left
   @@all = []
 
-  def self.new_from_sub_pages(wk)
+  def self.new_from_page(wk)
 
     alt_tags = wk.css('.wbw-hero__circles__fruit img').map{ |i| i['alt'] }
 

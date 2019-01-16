@@ -1,6 +1,6 @@
 class PregnancyWeeksInfo::Scraper
 
-  def get_sub_pages
+  def get_all_links
     doc = Nokogiri::HTML(open("https://www.whattoexpect.com/pregnancy/week-by-week/"))
     links = []
 
@@ -17,20 +17,19 @@ class PregnancyWeeksInfo::Scraper
     links
   end
 
-
-  def get_page(subpage)
-      Nokogiri::HTML(open(subpage))
+  def get_page(link)
+      Nokogiri::HTML(open(link))
   end
 
   def scrape_weeks_index
-    get_sub_pages.each do |subpage|
-      self.get_page(subpage).css(".intro")
+    get_all_links.each do |link|
+      self.get_page(link).css(".intro")
     end
   end
 
   def make_weeks
       scrape_weeks_index.each do |wk|
-      PregnancyWeeksInfo::Week.new_from_sub_pages(wk)
+        PregnancyWeeksInfo::Week.new_from_page(wk)
       end
   end
 
