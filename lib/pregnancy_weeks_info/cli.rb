@@ -31,6 +31,11 @@ class PregnancyWeeksInfo::CLI
 
         if (1..42).to_a.include? input.to_i
           print_week(input)
+        elsif input == "x"
+          puts ""
+          puts "Thanks for stopping by to learn more about you and your baby! "
+          puts ""
+          exit
         else
           puts ""
           puts "I don't understand that answer."
@@ -104,19 +109,19 @@ class PregnancyWeeksInfo::CLI
     if input == "f" then
       PregnancyWeeksInfo::Week.all.each_with_index do |week, i|
         if i < 13 then
-          puts "[Week " + (i+1).to_s + "]  " + week.weightUS + " | " + week.weightMetric + " | size of a/an " + week.fruit + " | "+ week.weeks_left + " week(s) to go!"
+          puts "[Week " + (i+1).to_s + "]  " + week.weightUS + " | " + week.weightMetric + " | size of a/an " + week.fruit + " | "+ week.weeks_left + " more week(s) to go!"
         end
       end
     elsif input == "s" then
       PregnancyWeeksInfo::Week.all.each_with_index do |week, i|
         if i > 12 && i < 27 then
-          puts "[Week " + (i+1).to_s + "]  " + week.weightUS + " | " + week.weightMetric + " | size of a/an " + week.fruit + " | "+ week.weeks_left + " week(s) to go!"
+          puts "[Week " + (i+1).to_s + "]  " + week.weightUS + " | " + week.weightMetric + " | size of a/an " + week.fruit + " | "+ week.weeks_left + " more week(s) to go!"
         end
       end
     else
       PregnancyWeeksInfo::Week.all.each_with_index do |week, i|
         if i > 26 then
-          puts "[Week " + (i+1).to_s + "]  " + week.weightUS + " | " + week.weightMetric + " | size of a/an " + week.fruit + " | "+ week.weeks_left + " week(s) to go!"
+          puts "[Week " + (i+1).to_s + "]  " + week.weightUS + " | " + week.weightMetric + " | size of a/an " + week.fruit + " | "+ week.weeks_left + " more week(s) to go!"
         end
       end
     end
