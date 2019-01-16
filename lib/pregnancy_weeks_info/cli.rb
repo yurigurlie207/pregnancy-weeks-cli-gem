@@ -78,14 +78,26 @@ class PregnancyWeeksInfo::CLI
 
   #prints the week, along with weight, fruit, and weeks left for each week
   def print_weeks(input)
-     PregnancyWeeksInfo::Week.all.each_with_index do |week, i|
-        if input == "f" && i < 13 then
-            puts "Week " + (i+1).to_s
-        elsif input == "s" && i > 13 && i < 28 then
-            puts "Week " + (i+1).to_s
-        elsif i > 27
-            puts "Week " + (i+1).to_s
+
+    if input == "f" then
+      PregnancyWeeksInfo::Week.all.each_with_index do |week, i|
+        if i < 13 then
+          puts "[Week " + (i+1).to_s + "] " + week.weightUS + " ||| " + week.weightMetric + " ||| size of a/an " + week.fruit + " ||| "+ week.weeks_left + " weeks to go!"
         end
+      end
+    elsif input == "s" then
+      PregnancyWeeksInfo::Week.all.each_with_index do |week, i|
+        if i > 12 && i < 27 then
+          puts "Week " + (i+1).to_s + ": "
+
+        end
+      end
+    else
+      PregnancyWeeksInfo::Week.all.each_with_index do |week, i|
+        if i > 26 then
+          puts "Week " + (i+1).to_s + ": "
+        end
+      end
     end
   end
 
