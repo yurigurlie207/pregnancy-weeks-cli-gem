@@ -73,7 +73,8 @@ class PregnancyWeeksInfo::CLI
         start
       elsif input == "n"
         puts ""
-        puts "Thank you! Have a great day!"
+        puts "Thanks for stopping by to learn more about you and your baby! "
+        puts ""
         exit
       elsif input == "x"
         puts ""
@@ -88,7 +89,8 @@ class PregnancyWeeksInfo::CLI
 
     elsif input == "x"
       puts ""
-      puts "Thank you! Have a great day!"
+      puts "Thanks for stopping by to learn more about you and your baby! "
+      puts ""
       exit
     else
       puts ""
