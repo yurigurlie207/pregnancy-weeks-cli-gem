@@ -21,19 +21,15 @@ class PregnancyWeeksInfo::CLI
 
     if ["f", "s", "t"].include? input
 
-        #print_weeks(input)
-        puts ""
-        puts "Week 1: "
-        puts "Week 1: "
-        puts "Week 1: "
+        print_weeks(input)
 
         puts ""
         puts "Which week would you like more information?"
 
         input = gets.strip.downcase
 
-        puts ""
-        puts "Week 2:"
+        print_week(input)
+
         puts ""
         puts "Would you like to see another week? Y/N"
 
@@ -53,9 +49,8 @@ class PregnancyWeeksInfo::CLI
         end
 
     elsif (1..42).to_a.include? input.to_i
-      #print_week(input)
       puts ""
-      puts "Week 2:"
+      print_week(input)
 
       puts ""
       puts "Would you like to see another week? Y/N"
@@ -82,11 +77,20 @@ class PregnancyWeeksInfo::CLI
   end
 
   #prints the week, along with weight, fruit, and weeks left for each week
-  def print_weeks
+  def print_weeks(input)
+     PregnancyWeeksInfo::Week.all.each_with_index do |week, i|
+        if input == "f" && i < 13 then
+            puts "Week " + (i+1).to_s
+        elsif input == "s" && i > 13 && i < 28 then
+            puts "Week " + (i+1).to_s
+        elsif i > 27
+            puts "Week " + (i+1).to_s
+        end
+    end
   end
 
   #prints the week - gives all info associated with given week
-  def print_week
+  def print_week(input)
   end
 
 
