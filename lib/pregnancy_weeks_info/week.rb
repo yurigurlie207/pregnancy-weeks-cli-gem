@@ -32,11 +32,11 @@ class PregnancyWeeksInfo::Week
   end
 
   def symptoms
-    @symptoms ||= doc.css()
+    @symptoms ||= doc.css("wbw-symptoms__list__item__body-c__headline").text
   end
 
   def readings
-    @readings ||= doc.css()
+    @readings ||= doc.css("trending__c__list__item__title").text
   end
 
   def doc
