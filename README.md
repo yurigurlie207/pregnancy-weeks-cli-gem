@@ -76,6 +76,10 @@ N
 
 Thanks for stopping by to learn more about you and your baby!
 
+## Contributor's Guide
+
+Contributors to this gem are all welcome at GitHub: https://github.com/yurigurlie207/pregnancy-weeks-info-cli-gem
+Ruby Gem Guidelines: https://guides.rubygems.org/contributing/
 
 ## Authors
 
