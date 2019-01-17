@@ -29,7 +29,6 @@ class PregnancyWeeksInfo::Scraper
     end
 
     week_xml_snippets
-    binding.pry
   end
 
   def make_weeks

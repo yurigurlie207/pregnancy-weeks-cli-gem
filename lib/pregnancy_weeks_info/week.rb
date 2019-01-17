@@ -1,6 +1,7 @@
 class PregnancyWeeksInfo::Week
 
-  attr_accessor :weightUS, :weightMetric, :fruit, :weeks_left
+  attr_accessor :weightUS, :weightMetric, :fruit, :weeks_left, :url, :readings, :symptoms, :readings
+
   @@all = []
 
   def self.new_from_page(link, wk)
@@ -24,6 +25,18 @@ class PregnancyWeeksInfo::Week
 
   def self.all
     @@all
+  end
+
+  def self.find(id)
+    self.all[id-1]
+  end
+
+  def symptoms
+    @symptoms ||= doc.css()
+  end
+
+  def readings
+    @readings ||= doc.css()
   end
 
   def doc
