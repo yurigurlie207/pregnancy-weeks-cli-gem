@@ -129,21 +129,24 @@ class PregnancyWeeksInfo::CLI
 
   #prints the week - gives all info associated with given week
   def print_week(input)
+    puts "------------------------------------------------"
+    puts "INFORMATION FOR WEEK " + input + " OF PREGNANCY"
+    puts "------------------------------------------------"
     puts ""
-    puts "Additional information for Week " + input + " of Pregnancy"
-
+    
     week = PregnancyWeeksInfo::Week.find(input.to_i)
 
-    puts "SYMPTOMS for this week:"
+    puts "SYMPTOMS you may experience for this week:"
     week.symptoms.each do |symptom|
-      puts sypmtom
+      puts "    " + symptom
     end
-
-    puts "ADDITIONAL READINGS for this week:"
+    puts ""
+    puts "ADDITIONAL READINGS to look into for this week:"
     week.readings.each do |reading|
-      puts reading
+        puts "     " + reading
     end
 
+    puts ""
     puts "Read more about this week here: " + week.url
     puts ""
   end

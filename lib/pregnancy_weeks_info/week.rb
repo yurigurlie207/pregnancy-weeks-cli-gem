@@ -28,15 +28,15 @@ class PregnancyWeeksInfo::Week
   end
 
   def self.find(id)
-    self.all[id-1]
+    self.all[id-2]
   end
 
   def symptoms
-    @symptoms ||= doc.css("wbw-symptoms__list__item__body-c__headline").text
+    @symptoms ||= doc.css(".wbw-symptoms__list__item__body-c__headline").map { |symptom| symptom.text }
   end
 
   def readings
-    @readings ||= doc.css("trending__c__list__item__title").text
+    @readings ||= doc.css(".trending__c__list__item__title").map { |reading| reading.text }
   end
 
   def doc
