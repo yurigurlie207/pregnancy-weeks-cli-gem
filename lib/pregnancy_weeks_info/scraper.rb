@@ -22,18 +22,19 @@ class PregnancyWeeksInfo::Scraper
   end
 
   def scrape_all_weeks
-    week_xml_snippets= []
+    week_xml_snippets= {}
 
     get_all_links.each do |link|
-      week_xml_snippets << self.get_page(link).css(".intro")
+      week_xml_snippets[link] = self.get_page(link).css(".intro")
     end
 
     week_xml_snippets
+    binding.pry
   end
 
   def make_weeks
-      scrape_all_weeks.each do |wk|
-        PregnancyWeeksInfo::Week.new_from_page(wk)
+      scrape_all_weeks.each do |link, wkObj|
+        PregnancyWeeksInfo::Week.new_from_page(link, wkObj)
       end
   end
 
