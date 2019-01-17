@@ -1,6 +1,6 @@
-## Project Title
+## Pregnancy Weeks Information
 
-One Paragraph of project description goes here
+This gem will allow a user to interact through a CLI. The CLI will prompt a user to look into the various weeks of the three trimesters of a 9-month pregnancy to stay informed. You will find out how big your baby is in weight (both US and metric), what fruit size best compares to the size of the baby in any given week, as well as how many more weeks to go before baby's arrival. You will also be able to look further into each of the 1-42 weeks of pregnancy for specific symptoms, and get a list of further readings that would be meaningful to research for that week.
 
 ## Getting Started
 
@@ -15,6 +15,10 @@ Give examples
 ```
 
 ### Installing
+
+Open your IDE of choice (Learn IDE 3)
+
+Clone a copy of this repository off the github address: git@github.com:cjbrock/worlds-best-restaurants-cli-gem.git
 
 A step by step series of examples that tell you how to get a development env running
 
@@ -72,16 +76,16 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Adrienne Yao** - *Initial work* - [Yurigurlie207](https://github.com/yurigurlie207)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.txt)
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+A thanks to the What to Expect website for being the source of all the information here:
+https://www.whattoexpect.com/pregnancy/week-by-week/
+
+The architecture of this program was loosely based on the World's Best Restaurant Gem maintained by the Flatiron School:
+https://github.com/cjbrock/worlds-best-restaurants-cli-gem
