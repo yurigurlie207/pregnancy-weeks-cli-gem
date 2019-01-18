@@ -1,5 +1,6 @@
 class PregnancyWeeksInfo::Scraper
 
+  #gets all the links for each week from the main weeks page
   def get_all_links
     doc = Nokogiri::HTML(open("https://www.whattoexpect.com/pregnancy/week-by-week/"))
     links = []
@@ -17,10 +18,12 @@ class PregnancyWeeksInfo::Scraper
     links
   end
 
+  #gets the xml object for a specific week
   def get_page(link)
       Nokogiri::HTML(open(link))
   end
 
+  #gets the xml object for all links
   def scrape_all_weeks
     week_xml_snippets= {}
 
@@ -31,6 +34,7 @@ class PregnancyWeeksInfo::Scraper
     week_xml_snippets
   end
 
+  #creates instances of all the weeks
   def make_weeks
       scrape_all_weeks.each do |link, wkObj|
         PregnancyWeeksInfo::Week.new_from_page(link, wkObj)
