@@ -9,7 +9,7 @@ class PregnancyWeeksInfo::CLI
     start
   end
 
-  #the start method
+  #the start method prompts the user and decide to either prompt further, print or quit
   def start
     puts ""
     puts "Which pregnancy weeks would you like more info?"
@@ -104,6 +104,7 @@ class PregnancyWeeksInfo::CLI
     end
   end
 
+  #prints all the weeks in the selected trimester
   def print_weeks(input)
 
     if input == "f" then
