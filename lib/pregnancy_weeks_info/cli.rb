@@ -133,8 +133,13 @@ class PregnancyWeeksInfo::CLI
     puts "INFORMATION FOR WEEK " + input + " OF PREGNANCY"
     puts "------------------------------------------------"
     puts ""
-    
+
     week = PregnancyWeeksInfo::Week.find(input.to_i)
+
+    puts "Weight(US/Metric): " + week.weightUS + " / " + week.weightMetric
+    puts "Size: " + week.fruit
+    puts  "Time left: " + week.weeks_left + " more week(s) to go!"
+    puts ""
 
     puts "SYMPTOMS you may experience for this week:"
     week.symptoms.each do |symptom|
