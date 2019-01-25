@@ -37,7 +37,18 @@ class PregnancyWeeksInfo::Scraper
   #creates instances of all the weeks
   def make_weeks
       scrape_all_weeks.each do |link, wkObj|
-        PregnancyWeeksInfo::Week.new_from_page(link, wkObj)
+
+        alt_tags = wkObj.css('.wbw-hero__circles__fruit img').map{ |i| i['alt'] }
+        sizeUS = wkObj.css("#sizeUs").text
+        sizeMetric = wkObj.css("#sizeMetric").text
+        alt = alt_tags.first
+        weeks_left = wkObj.css(".wbw-hero__circles__weeks__circle__text").first.text
+
+        doc ||= Nokogiri::HTML(open(link))
+        symptoms ||= doc.css(".wbw-symptoms__list__item__body-c__headline").map { |symptom| symptom.text }
+        readings ||= doc.css(".trending__c__list__item__title").map { |reading| reading.text }
+
+        PregnancyWeeksInfo::Week.new(sizeUS, sizeMetric, alt, weeks_left, link, symptoms, readings)
       end
   end
 
